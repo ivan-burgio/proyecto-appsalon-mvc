@@ -228,22 +228,12 @@ function mostrarResumen() {
     // Formatear el div de resumen
     const {nombre, fecha, hora, servicios} = cita;
 
-    const nombreCliente = document.createElement('P');
-    nombreCliente.innerHTML = `<span>Nombre: </span> ${nombre}`;
+    // Heading para servicios en Resumen
+    const headingServicios = document.createElement('H3');
+    headingServicios.textContent = 'Resumen de servicios';
+    resumen.appendChild(headingServicios);
 
-    const fechaCita = document.createElement('P');
-    fechaCita.innerHTML = `<span>Fecha: </span> ${fecha}`;
-
-    const horaCita = document.createElement('P');
-    horaCita.innerHTML = `<span>Hora: </span> ${hora}`;
-
-    const cantidadServicios = document.createElement('P');
-    cantidadServicios.innerHTML = `<span>Cantidad de servicios: </span> ${servicios.length}`;
-
-    const total = servicios.reduce((total, servicio) => total + parseFloat(servicio.precio), 0);
-    const totalAPagar = document.createElement('P');
-    totalAPagar.innerHTML = `<span>Precio final: </span> $${total}`;
-
+    // Iterando y mostrando los servicios
     servicios.forEach(servicio => {
         const {id, precio, nombre} = servicio;
 
@@ -261,6 +251,27 @@ function mostrarResumen() {
 
         resumen.appendChild(contenedorServicio);
     })
+
+    // Heading para cita en Resumen
+    const headingCIta = document.createElement('H3');
+    headingCIta.textContent = 'Resumen de cita';
+    resumen.appendChild(headingCIta);
+
+    const nombreCliente = document.createElement('P');
+    nombreCliente.innerHTML = `<span>Nombre: </span> ${nombre}`;
+
+    const fechaCita = document.createElement('P');
+    fechaCita.innerHTML = `<span>Fecha: </span> ${fecha}`;
+
+    const horaCita = document.createElement('P');
+    horaCita.innerHTML = `<span>Hora: </span> ${hora} horas`;
+
+    const cantidadServicios = document.createElement('P');
+    cantidadServicios.innerHTML = `<span>Cantidad de servicios: </span> ${servicios.length}`;
+
+    const total = servicios.reduce((total, servicio) => total + parseFloat(servicio.precio), 0);
+    const totalAPagar = document.createElement('P');
+    totalAPagar.innerHTML = `<span>Precio final: </span> $${total}`;
 
     resumen.appendChild(nombreCliente);
     resumen.appendChild(fechaCita);
