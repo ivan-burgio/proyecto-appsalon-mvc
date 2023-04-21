@@ -298,5 +298,6 @@ function mostrarResumen() {
 }
 
 function reservarCita() {
-    
+    const datos = new FormData();
+    datos.append('nombre', 'Iván');
 }
