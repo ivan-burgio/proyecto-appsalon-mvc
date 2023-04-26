@@ -30,7 +30,7 @@ CREATE TABLE `citas` (
   PRIMARY KEY (`id`),
   KEY `usuarioId` (`usuarioId`),
   CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `citas` (
 
 LOCK TABLES `citas` WRITE;
 /*!40000 ALTER TABLE `citas` DISABLE KEYS */;
+INSERT INTO `citas` VALUES (2,'2023-04-28','10:30:00',4),(3,'2023-04-28','10:30:00',4),(4,'2023-04-27','14:42:00',4),(5,'2023-04-27','11:43:00',4),(6,'2023-04-27','11:43:00',4),(7,'2023-04-27','16:49:00',4),(8,'2023-04-28','10:50:00',4),(9,'2023-04-26','14:53:00',4),(12,'2023-04-28','10:30:00',4);
 /*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,12 +52,12 @@ DROP TABLE IF EXISTS `citasservicios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `citasservicios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `citasId` int DEFAULT NULL,
+  `citaId` int DEFAULT NULL,
   `servicioId` int DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `citasId` (`citasId`),
+  KEY `citasId` (`citaId`),
   KEY `servicioId` (`servicioId`),
-  CONSTRAINT `citasservicios_ibfk_3` FOREIGN KEY (`citasId`) REFERENCES `citas` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
+  CONSTRAINT `citasservicios_ibfk_3` FOREIGN KEY (`citaId`) REFERENCES `citas` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `citasservicios_ibfk_4` FOREIGN KEY (`servicioId`) REFERENCES `servicios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -135,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-31 19:25:14
+-- Dump completed on 2023-04-26 18:11:53
