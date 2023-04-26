@@ -1,7 +1,6 @@
 <?php
 namespace Model;
 class ActiveRecord {
-
     // Base de datos
     protected static $db;
     protected static $tabla = '';
@@ -43,7 +42,7 @@ class ActiveRecord {
         // liberar la memoria
         $resultado->free();
 
-        // retornar los resultados
+        // Retornar los resultados
         return $array;
     }
 
@@ -129,7 +128,7 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
-    // crea un nuevo registro
+    // Crea un nuevo registro
     public function crear() {
         // Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
@@ -142,6 +141,7 @@ class ActiveRecord {
         $query .= "') ";
      
         //return json_encode(['query' => $query]);
+
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [
