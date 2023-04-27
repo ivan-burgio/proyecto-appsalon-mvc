@@ -24,3 +24,23 @@
         padding: 3rem 0;
     }
 }
+
+.barra {
+    margin: v.$separacion 0;
+
+    p {
+        font-weight: v.$bold;
+    }
+
+    @include m.tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .boton {
+        @include m.boton(v.$azul, v.$blanco);
+        margin: 0;
+        padding: 1rem 3.5rem;
+    }
+}
