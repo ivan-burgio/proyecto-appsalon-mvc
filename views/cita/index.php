@@ -2,12 +2,7 @@
 <p class="descripcion-pagina">Eligue tus servicios y coloca tus datos.</p>
 
 <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
-
-<div class="barra">
-    <p>Hola <?php echo $nombre ?? ''; ?></p>
-
-    <a class="boton" href="/logout">Cerrar sesión</a>
-</div>
+<?php include_once __DIR__ . '/../templates/barra.php'; ?>
 
 <div id="app">
     <nav class="tabs">
