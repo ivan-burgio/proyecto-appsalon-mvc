@@ -3,6 +3,7 @@
 <?php include_once __DIR__ . '/../templates/barra.php'; ?>
 
 <h2>Buscar citas</h2>
+
 <div class="busqueda">
     <form action="" class="formulario">
         <div class="campo">
