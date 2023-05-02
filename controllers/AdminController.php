@@ -7,7 +7,11 @@ use Model\AdminCita;
 
 class AdminController {
     public static function index(Router $router) {
-        session_start();
+        if(!isset($_SESSION)) {
+            session_start();
+        }
+
+        $fecha = date('Y-m-d');
 
         // Consultar base de datos
         $consulta = "SELECT citas.id, citas.hora, CONCAT(usuarios.nombre, ' ', usuarios.apellido) as cliente, ";
@@ -19,13 +23,14 @@ class AdminController {
         $consulta .= " ON citasServicios.citaId=citas.id ";
         $consulta .= " LEFT OUTER JOIN servicios ";
         $consulta .= " ON servicios.id=citasServicios.servicioId ";
-        // $consulta .= " WHERE fecha =  '${fecha}' ";
+        $consulta .= " WHERE fecha =  '${fecha}' ";
 
         $citas = AdminCita::SQL($consulta);
 
         $router->render('admin/index', [
             'nombre' => $_SESSION['nombre'],
             'citas' => $citas,
+            'fecha' => $fecha
         ]);
     }
 }

@@ -8,7 +8,7 @@
     <form action="" class="formulario">
         <div class="campo">
             <label for="fecha"></label>
-            <input type="date" id="fecha" name="fecha">
+            <input type="date" id="fecha" name="fecha" value="<?php echo $fecha; ?>">
         </div>
     </form>
 </div>
