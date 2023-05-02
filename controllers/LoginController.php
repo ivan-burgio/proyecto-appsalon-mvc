@@ -9,6 +9,7 @@ use Model\Usuario;
 class LoginController {
     public static function login(Router $router) {
         $alertas = [];
+        $auth = new Usuario;
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new Usuario($_POST);
