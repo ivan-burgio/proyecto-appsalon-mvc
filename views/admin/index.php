@@ -7,7 +7,7 @@
 <div class="busqueda">
     <form action="" class="formulario">
         <div class="campo">
-            <label for="fecha"></label>
+            <label for="fecha">Fecha:</label>
             <input type="date" id="fecha" name="fecha" value="<?php echo $fecha; ?>">
         </div>
     </form>
