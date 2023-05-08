@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use MVC\Router;
+use Model\Servicio;
 
 class ServicioController {
     public static function index(Router $router) {
@@ -20,12 +21,23 @@ class ServicioController {
             session_start();
         }
 
-        if($_SESSION['REQUEST_METHOD'] === 'POST') {
+        $servicio = new Servicio;
+        $alertas = [];
 
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $servicio->sincronizar($_POST);
+            $alertas = $servicio->validar();
+
+            if(empty($alertas)) {
+                $servicio->guardar();
+                header('Location: /servicios');
+            }
         }
 
         $router->render('servicios/crear', [
             'nombre' => $_SESSION['nombre'],
+            'servicio' => $servicio,
+            'alertas' => $alertas
         ]);
     }
 
