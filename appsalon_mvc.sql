@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `appsalon_mvc` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `appsalon_mvc`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
 --
 -- Host: localhost    Database: appsalon_mvc
@@ -30,7 +32,7 @@ CREATE TABLE `citas` (
   PRIMARY KEY (`id`),
   KEY `usuarioId` (`usuarioId`),
   CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`usuarioId`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +41,7 @@ CREATE TABLE `citas` (
 
 LOCK TABLES `citas` WRITE;
 /*!40000 ALTER TABLE `citas` DISABLE KEYS */;
-INSERT INTO `citas` VALUES (2,'2023-04-28','10:30:00',4),(3,'2023-04-28','10:30:00',4),(4,'2023-04-27','14:42:00',4),(5,'2023-04-27','11:43:00',4),(6,'2023-04-27','11:43:00',4),(7,'2023-04-27','16:49:00',4),(8,'2023-04-28','10:50:00',4),(9,'2023-04-26','14:53:00',4),(12,'2023-04-28','10:30:00',4);
+INSERT INTO `citas` VALUES (13,'2023-05-02','14:30:00',4);
 /*!40000 ALTER TABLE `citas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +61,7 @@ CREATE TABLE `citasservicios` (
   KEY `servicioId` (`servicioId`),
   CONSTRAINT `citasservicios_ibfk_3` FOREIGN KEY (`citaId`) REFERENCES `citas` (`id`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `citasservicios_ibfk_4` FOREIGN KEY (`servicioId`) REFERENCES `servicios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +70,7 @@ CREATE TABLE `citasservicios` (
 
 LOCK TABLES `citasservicios` WRITE;
 /*!40000 ALTER TABLE `citasservicios` DISABLE KEYS */;
+INSERT INTO `citasservicios` VALUES (1,13,1),(2,13,2),(3,13,5),(4,13,4),(5,13,3),(6,NULL,11),(7,NULL,10);
 /*!40000 ALTER TABLE `citasservicios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +86,7 @@ CREATE TABLE `servicios` (
   `nombre` varchar(60) DEFAULT NULL,
   `precio` decimal(5,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-27 22:04:24
+-- Dump completed on 2023-05-09 19:51:03
