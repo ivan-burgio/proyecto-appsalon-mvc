@@ -49,12 +49,18 @@ class ServicioController {
             session_start();
         }
 
-        if($_SESSION['REQUEST_METHOD'] === 'POST') {
+        if(!is_numeric($_GET['id'])) return;
+        $servicio = Servicio::find($_GET['id']);
+        $alertas = [];
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         }
 
         $router->render('servicios/actualizar', [
             'nombre' => $_SESSION['nombre'],
+            'servicio' => $servicio,
+            'alertas' => $alertas
         ]);
     }
 
@@ -63,7 +69,7 @@ class ServicioController {
             session_start();
         }
 
-        if($_SESSION['REQUEST_METHOD'] === 'POST') {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
         }
     }
